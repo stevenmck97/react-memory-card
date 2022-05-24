@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "./Card";
 
 const Main = () => {
-    const [actor, setActor] = useState({
+    const [actor] = useState({
         name: [
             {
                 id: 1,
@@ -34,12 +34,20 @@ const Main = () => {
     const handleActorClick = (e) => {
         if (!actorStore.includes(e.target.name)) {
             setActorStore(actorStore.concat(e.target.name));
-            // console.log(actorStore);
-        } else console.log("error");
+            setScore(score + 1);
+            score >= bestScore ? setBestScore(score + 1) : console.log("test");
+        } else {
+            console.log("error");
+            setScore(0);
+            setActorStore([]);
+        }
     };
 
     return (
         <div>
+            <p>
+                Current Score: {score} Best Score: {bestScore}
+            </p>
             {actor.name.map((item) => {
                 return (
                     <div key={item.id}>
