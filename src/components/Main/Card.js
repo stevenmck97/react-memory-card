@@ -1,10 +1,10 @@
 import React from "react";
 
-const Card = ({ name, img }) => {
+const Card = ({ name, img, handleActorClick }) => {
     return (
-        <div>
-            <img src={img} alt={name} width="200px"></img>
-            <h3>{name}</h3>
+        <div onClick={handleActorClick}>
+            <img src={img} alt={name} name={name} width="200px"></img>
+            <h3 name={name}>{name}</h3>
         </div>
     );
 };

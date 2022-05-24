@@ -3,7 +3,6 @@ import Card from "./Card";
 
 const Main = () => {
     const [actor, setActor] = useState({
-        // name: ["Brad", "Angelina", "Johnny", "Amber"],
         name: [
             {
                 id: 1,
@@ -32,12 +31,23 @@ const Main = () => {
     const [score, setScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
 
+    const handleActorClick = (e) => {
+        if (!actorStore.includes(e.target.name)) {
+            setActorStore(actorStore.concat(e.target.name));
+            // console.log(actorStore);
+        } else console.log("error");
+    };
+
     return (
         <div>
             {actor.name.map((item) => {
                 return (
                     <div key={item.id}>
-                        <Card name={item.firstName} img={item.imgUrl} />
+                        <Card
+                            name={item.firstName}
+                            img={item.imgUrl}
+                            handleActorClick={handleActorClick}
+                        />
                     </div>
                 );
             })}
