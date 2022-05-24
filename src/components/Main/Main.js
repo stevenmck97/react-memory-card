@@ -2,30 +2,28 @@ import React, { useState } from "react";
 import Card from "./Card";
 
 const Main = () => {
-    const [actor] = useState({
-        name: [
-            {
-                id: 1,
-                firstName: "Brad",
-                imgUrl: "https://m.media-amazon.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_.jpg",
-            },
-            {
-                id: 2,
-                firstName: "Angelina",
-                imgUrl: "https://m.media-amazon.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_.jpg",
-            },
-            {
-                id: 3,
-                firstName: "Johnny",
-                imgUrl: "https://m.media-amazon.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_.jpg",
-            },
-            {
-                id: 4,
-                firstName: "Amber",
-                imgUrl: "https://m.media-amazon.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_.jpg",
-            },
-        ],
-    });
+    const [actor] = useState([
+        {
+            id: 1,
+            firstName: "Brad",
+            imgUrl: "https://m.media-amazon.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_.jpg",
+        },
+        {
+            id: 2,
+            firstName: "Angelina",
+            imgUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Angelina_Jolie_2_June_2014_%28cropped%29.jpg/640px-Angelina_Jolie_2_June_2014_%28cropped%29.jpg",
+        },
+        {
+            id: 3,
+            firstName: "Johnny",
+            imgUrl: "https://m.media-amazon.com/images/M/MV5BMTM0ODU5Nzk2OV5BMl5BanBnXkFtZTcwMzI2ODgyNQ@@._V1_.jpg",
+        },
+        {
+            id: 4,
+            firstName: "Amber",
+            imgUrl: "https://www.stylectory.net/wp-content/uploads/2021/01/Amber-heard-met-costume-institute-gala-2016-in-new-york-25-560x783-1.jpg",
+        },
+    ]);
 
     const [actorStore, setActorStore] = useState([]);
     const [score, setScore] = useState(0);
@@ -35,7 +33,7 @@ const Main = () => {
         if (!actorStore.includes(e.target.name)) {
             setActorStore(actorStore.concat(e.target.name));
             setScore(score + 1);
-            score >= bestScore ? setBestScore(score + 1) : console.log("test");
+            score >= bestScore ? setBestScore(score + 1) : console.log("error");
         } else {
             console.log("error");
             setScore(0);
@@ -48,7 +46,7 @@ const Main = () => {
             <p>
                 Current Score: {score} Best Score: {bestScore}
             </p>
-            {actor.name.map((item) => {
+            {actor.map((item) => {
                 return (
                     <div key={item.id}>
                         <Card
