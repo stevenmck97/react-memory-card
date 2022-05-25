@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 
 const Main = () => {
@@ -51,9 +51,7 @@ const Main = () => {
     };
 
     const randomize = () => {
-        document.querySelector(".card").addEventListener("click", () => {
-            setActor(actor.sort(() => Math.random() - 0.5));
-        });
+        setActor(actor.sort(() => Math.random() - 0.5));
     };
 
     return (
