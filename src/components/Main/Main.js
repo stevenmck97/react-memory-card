@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "./Card";
+import ActorCard from "./Card";
 
 const Main = () => {
     const [actor, setActor] = useState([
@@ -62,7 +62,7 @@ const Main = () => {
             {actor.map((item) => {
                 return (
                     <div key={item.id} className="card" onClick={randomize}>
-                        <Card
+                        <ActorCard
                             name={item.firstName}
                             img={item.imgUrl}
                             handleActorClick={handleActorClick}
