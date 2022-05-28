@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ActorCard from "./Card";
+import Grid from "@mui/material/Grid";
 
 const Main = () => {
     const [actor, setActor] = useState([
@@ -20,6 +21,46 @@ const Main = () => {
         },
         {
             id: 4,
+            firstName: "Amber",
+            imgUrl: "https://www.stylectory.net/wp-content/uploads/2021/01/Amber-heard-met-costume-institute-gala-2016-in-new-york-25-560x783-1.jpg",
+        },
+        {
+            id: 5,
+            firstName: "Amber",
+            imgUrl: "https://www.stylectory.net/wp-content/uploads/2021/01/Amber-heard-met-costume-institute-gala-2016-in-new-york-25-560x783-1.jpg",
+        },
+        {
+            id: 6,
+            firstName: "Amber",
+            imgUrl: "https://www.stylectory.net/wp-content/uploads/2021/01/Amber-heard-met-costume-institute-gala-2016-in-new-york-25-560x783-1.jpg",
+        },
+        {
+            id: 7,
+            firstName: "Amber",
+            imgUrl: "https://www.stylectory.net/wp-content/uploads/2021/01/Amber-heard-met-costume-institute-gala-2016-in-new-york-25-560x783-1.jpg",
+        },
+        {
+            id: 8,
+            firstName: "Amber",
+            imgUrl: "https://www.stylectory.net/wp-content/uploads/2021/01/Amber-heard-met-costume-institute-gala-2016-in-new-york-25-560x783-1.jpg",
+        },
+        {
+            id: 9,
+            firstName: "Amber",
+            imgUrl: "https://www.stylectory.net/wp-content/uploads/2021/01/Amber-heard-met-costume-institute-gala-2016-in-new-york-25-560x783-1.jpg",
+        },
+        {
+            id: 10,
+            firstName: "Amber",
+            imgUrl: "https://www.stylectory.net/wp-content/uploads/2021/01/Amber-heard-met-costume-institute-gala-2016-in-new-york-25-560x783-1.jpg",
+        },
+        {
+            id: 11,
+            firstName: "Amber",
+            imgUrl: "https://www.stylectory.net/wp-content/uploads/2021/01/Amber-heard-met-costume-institute-gala-2016-in-new-york-25-560x783-1.jpg",
+        },
+        {
+            id: 12,
             firstName: "Amber",
             imgUrl: "https://www.stylectory.net/wp-content/uploads/2021/01/Amber-heard-met-costume-institute-gala-2016-in-new-york-25-560x783-1.jpg",
         },
@@ -59,17 +100,31 @@ const Main = () => {
             <p>
                 Current Score: {score} Best Score: {bestScore}
             </p>
-            {actor.map((item) => {
-                return (
-                    <div key={item.id} className="card" onClick={randomize}>
-                        <ActorCard
-                            name={item.firstName}
-                            img={item.imgUrl}
-                            handleActorClick={handleActorClick}
-                        />
-                    </div>
-                );
-            })}
+            <Grid
+                container
+                spacing={{ xs: 2, md: 3 }}
+                columns={{ xs: 4, sm: 8, md: 12 }}
+                justifyContent={"center"}
+            >
+                {actor.map((item) => {
+                    return (
+                        <Grid
+                            key={item.id}
+                            onClick={randomize}
+                            item
+                            xs={4}
+                            sm={4}
+                            md={2}
+                        >
+                            <ActorCard
+                                name={item.firstName}
+                                img={item.imgUrl}
+                                handleActorClick={handleActorClick}
+                            />
+                        </Grid>
+                    );
+                })}
+            </Grid>
         </div>
     );
 };
